@@ -1,0 +1,7 @@
+{
+  "vendor": "pocketstore-io",
+  "name": "blog",
+  "version": "0.0.1.0",
+  "type": "plugin",
+  "prio": 100
+}
