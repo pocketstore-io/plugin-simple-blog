@@ -1,1 +1,1 @@
-# Plugin PocketStore - blog
+# Plugin PocketStore - simple-blog

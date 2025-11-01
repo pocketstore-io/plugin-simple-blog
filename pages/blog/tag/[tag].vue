@@ -3,6 +3,6 @@
 
 <template>
   <section class="bg-white px-3 py-3">
-    Blog post
+    Blog tag
   </section>
 </template>

@@ -1,4 +1,22 @@
 <script setup lang="ts">
+import {usePocketBase} from "@/util/pocketbase";
+
+const props = defineProps({
+  identifier: {type: String, required: true}
+});
+const tags = ref([]);
+const item = ref({});
+const pb = usePocketBase();
+
+const load = async () => {
+  pb.autoCancellation(false)
+  item.value = await pb.collection('blog_articels').getOne(props.identifier);
+  tags.value = (await pb.collection('blog_articel_tags').getList(1, 10, {
+    filter: 'articel="' + props.identifier + '"'
+  })).items;
+}
+
+onMounted(load)
 </script>
 
 <template>
@@ -6,18 +24,24 @@
     <figure>
       <img
           src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-          alt="Shoes" />
+          alt="Shoes"/>
     </figure>
     <div class="card-body">
       <h2 class="card-title">
-        Card Title
-        <div class="badge badge-secondary">NEW</div>
+        {{ item.name }}
+        <div v-if="item.new" class="badge badge-secondary">NEW</div>
       </h2>
-      <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-      <div class="card-actions justify-end">
-        <div class="badge badge-outline">Fashion</div>
-        <div class="badge badge-outline">Products</div>
+      <p>{{ item.description }}</p>
+      <div class="card-actions">
+        <a v-for="tag in tags" :href="'/de/blog/tag/'+tag.tag.toLowerCase()" class="badge badge-outline border-white text-white font-bold">
+          {{tag.tag}}
+        </a>
       </div>
+      <section class="card-actions flex justify-end space-x-3">
+        <a :href="'/de/articel/'+item.slug+'.html'" class="btn btn-primary">
+          weiterlesen
+        </a>
+      </section>
     </div>
   </div>
 </template>

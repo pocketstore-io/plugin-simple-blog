@@ -1,7 +1,7 @@
 {
   "vendor": "pocketstore-io",
-  "name": "blog",
+  "name": "simple-blog",
   "version": "0.0.1.0",
   "type": "plugin",
-  "prio": 100
+  "prio": 90
 }
