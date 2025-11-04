@@ -36,7 +36,7 @@ onMounted(load)
     <div class="prose-sm" v-html="markdown"></div>
     <AuthorCard :data="author"/>
     <ArticelCommentForm/>
-    <ArticelComments/>
+    <ArticelComments :articel="route.params.id.replace('.html', '')"/>
     <ArticelRelated/>
   </section>
 </template>
