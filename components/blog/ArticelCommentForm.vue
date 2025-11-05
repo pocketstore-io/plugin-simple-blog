@@ -18,13 +18,14 @@
         </div>
       </div>
       <div v-if="pb.authStore.isValid" class="col-span-6 md:col-span-4">
-        <h4 class="font-bold">
-          Kommentar schreiben
-        </h4>
-        <textarea class="textarea"></textarea>
-        <section class="actions flex justify-end mt-3">
-          <button class="btn btn-primary">abschicken</button>
-        </section>
+        <div v-if="!successfullWriten">
+          <ArticelWriteComment @geschrieben="successfullWriten = true" />
+        </div>
+        <div v-else>
+          <div class="alert alert-success text-center mt-3 mb-3">
+            Kommentar erfolgreich geschrieben
+          </div>
+        </div>
       </div>
     </section>
   </section>
@@ -34,7 +35,9 @@ import ArticelCustomer from "~/components/blog/ArticelCustomer.vue";
 import ModalLogin from "~/components/modal/Login.vue";
 import {usePocketBase} from "~/util/pocketbase";
 import {useLocalStorage} from '@vueuse/core'
+import ArticelWriteComment from "~/components/blog/ArticelWriteComment.vue";
 
 const pb = usePocketBase();
+const successfullWriten = ref(false);
 const open = useLocalStorage('modal-login',false,{})
 </script>
