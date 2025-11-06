@@ -10,9 +10,9 @@
             customer.avatar" class="border-2 border-black w-24" alt="">
     </div>
     <div class="col-span-4 md:col-span-6 text-sm">
-      Name: <b>{{customer.name}}</b><br>
-      Mitglied seit: <b>{{new Date(customer.created).toLocaleDateString('de')}}</b> <br>
-      Kommentar: <b>{{counter}}</b>
+      {{$t('labels.name')}}: <b>{{customer.name}}</b><br>
+      {{$t('labels.memberSince')}}: <b>{{new Date(customer.created).toLocaleDateString('de')}}</b> <br>
+      {{$t('labels.comment')}}: <b>{{counter}}</b>
     </div>
   </section>
 </template>
@@ -33,7 +33,5 @@ const load = async () => {
   customer.value = await pb.collection('customers').getOne(props.identifier);
 }
 
-onMounted(() => {
-  load();
-});
+onMounted(load);
 </script>

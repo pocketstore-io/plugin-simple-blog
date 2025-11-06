@@ -4,6 +4,7 @@ import {usePocketBase} from "@/util/pocketbase";
 const props = defineProps({
   identifier: {type: String, required: true}
 });
+
 const tags = ref([]);
 const item = ref({});
 const pb = usePocketBase();
@@ -29,8 +30,9 @@ onMounted(load)
     <div class="card-body">
       <h2 class="card-title">
         {{ item.name }}
-        <div v-if="item.new" class="badge badge-secondary">NEW</div>
+        <div v-if="!item.new" class="badge badge-secondary">{{ $t('labels.new') }}</div>
       </h2>
+
       <p>{{ item.description }}</p>
       <div class="card-actions">
         <a v-for="tag in tags" :href="'/de/blog/tag/'+tag.tag.toLowerCase()" class="badge badge-outline border-white text-white font-bold">
@@ -39,7 +41,7 @@ onMounted(load)
       </div>
       <section class="card-actions flex justify-end space-x-3">
         <a :href="'/de/articel/'+item.slug+'.html'" class="btn btn-primary">
-          weiterlesen
+          {{$t('actions.readMore')}}
         </a>
       </section>
     </div>

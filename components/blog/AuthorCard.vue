@@ -8,7 +8,7 @@
         <h3 class="font-bold mt-2">Author: {{ props.data.name }}</h3>
         <p class="block pr-3">{{ props.data.description }}</p>
         <section class="social-media-icons">
-          <h5 class="font-bold">Kontakt und Social Media</h5>
+          <h5 class="font-bold">{{$t('headline.contactAndSocial')}}</h5>
           <hr class="!my-2">
           <section class="grid grid-cols-10 gap-3">
             <div class="col-span-2 text-center">
