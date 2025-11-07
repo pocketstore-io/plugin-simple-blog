@@ -1,3 +1,29 @@
 {
-  "hello": "Hello"
+  "labels": {
+    "new": "New",
+    "name": "Name",
+    "comment": "Comment",
+    "memberSince": "Member since",
+    "close": "Close"
+  },
+  "placeholder": {
+    "comment": "Your comment"
+  },
+  "headline": {
+    "contactAndSocial": "Contact and Social Media"
+  },
+  "actions": {
+    "send": "Send",
+    "readMore": "Read more",
+    "login": "Login",
+    "writeComment": "Write a comment"
+  },
+  "note": {
+    "notLoggedIn": "Not logged in, to"
+  },
+  "toast": {
+    "success": {
+      "comment": "Comment posted successfully"
+    }
+  }
 }
