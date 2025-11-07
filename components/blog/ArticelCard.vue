@@ -30,7 +30,7 @@ onMounted(load)
     <div class="card-body">
       <h2 class="card-title">
         {{ item.name }}
-        <div v-if="!item.new" class="badge badge-secondary">{{ $t('labels.new') }}</div>
+        <div v-if="item.isNew" class="badge badge-secondary">{{ $t('labels.new') }}</div>
       </h2>
 
       <p>{{ item.description }}</p>
