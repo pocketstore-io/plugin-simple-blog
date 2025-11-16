@@ -8,7 +8,6 @@
   </section>
 </template>
 <script setup lang="ts">
-import PluginCard from "@/components/PluginCard.vue";
 import {usePocketBase} from "@/util/pocketbase";
 
 const items = ref([]);
