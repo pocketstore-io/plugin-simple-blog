@@ -22,11 +22,13 @@ onMounted(load)
 
 <template>
   <div class="card bg-gray-400 shadow-sm">
-    <figure>
-      <img
-          src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-          alt="Shoes"/>
-    </figure>
+    <a :href="'/de/articel/'+item.slug+'.html'">
+      <figure>
+        <img
+            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+            alt="Shoes"/>
+      </figure>
+    </a>
     <div class="card-body">
       <h2 class="card-title">
         {{ item.name }}
@@ -35,13 +37,14 @@ onMounted(load)
 
       <p>{{ item.description }}</p>
       <div class="card-actions">
-        <a v-for="tag in tags" :href="'/de/blog/tag/'+tag.tag.toLowerCase()" class="badge badge-outline border-white text-white font-bold">
-          {{tag.tag}}
+        <a v-for="tag in tags" :href="'/de/blog/tag/'+tag.tag.toLowerCase()"
+           class="badge badge-outline border-white text-white font-bold">
+          {{ tag.tag }}
         </a>
       </div>
       <section class="card-actions flex justify-end space-x-3">
         <a :href="'/de/articel/'+item.slug+'.html'" class="btn btn-primary">
-          {{$t('actions.readMore')}}
+          {{ $t('actions.readMore') }}
         </a>
       </section>
     </div>
