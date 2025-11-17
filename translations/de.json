@@ -9,6 +9,10 @@
   "breadcrumb": {
     "blog": "Blog"
   },
+  "blog": {
+    "headline": "Blog",
+    "no-articels": "Es gibt noch keine Articel für dich."
+  },
   "placeholder": {
     "comment": "Dein Kommentar"
   },

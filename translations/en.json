@@ -9,6 +9,10 @@
   "placeholder": {
     "comment": "Your comment"
   },
+  "blog": {
+    "headline": "Blog",
+    "no-articels": "Currently there are no Blog Articels."
+  },
   "headline": {
     "contactAndSocial": "Contact and Social Media"
   },

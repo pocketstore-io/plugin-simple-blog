@@ -3,7 +3,7 @@
     <section class="grid grid-cols-6 gap-3">
       <div class="col-span-6">
         <h2 class="font-bold text-lg">
-          Blog
+          {{$t('blog.headline')}}
         </h2>
       </div>
       <div v-if="items.length > 0" v-for="item in items" class="col-span-6 sm:col-span-3 lg:col-span-2">
@@ -11,7 +11,7 @@
       </div>
       <div v-else class="col-span-6">
         <section class="alert alert-error">
-          Test 123
+          {{$t('blog.no-articels')}}
         </section>
       </div>
     </section>
