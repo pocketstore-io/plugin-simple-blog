@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {usePocketBase} from "@/util/pocketbase";
+import {usePocketBase} from "@/utils/pocketbase";
 import {useRoute} from "vue-router";
 import AuthorCard from "@/components/blog/AuthorCard.vue";
 import ArticelCommentForm from "@/components/blog/ArticelCommentForm.vue";

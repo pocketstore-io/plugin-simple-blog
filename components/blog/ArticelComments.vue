@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 
-import {usePocketBase} from "@/util/pocketbase";
+import {usePocketBase} from "@/utils/pocketbase";
 import ArticelComment from "./ArticelComment.vue";
 
 const pb = usePocketBase();

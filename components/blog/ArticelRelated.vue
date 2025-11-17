@@ -8,7 +8,7 @@
   </section>
 </template>
 <script setup lang="ts">
-import {usePocketBase} from "@/util/pocketbase";
+import {usePocketBase} from "@/utils/pocketbase";
 
 const items = ref([]);
 

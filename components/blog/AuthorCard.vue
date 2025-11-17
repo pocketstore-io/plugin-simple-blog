@@ -43,7 +43,7 @@
 </template>
 
 <script setup lang="ts">
-import {usePocketBaseUrl} from "@/util/pocketbase";
+import {usePocketBaseUrl} from "@/utils/pocketbase";
 import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 
 const props = defineProps({

@@ -31,7 +31,7 @@
 </template>
 <script setup lang="ts">
 import ArticelCustomer from "~/components/blog/ArticelCustomer.vue";
-import {usePocketBase} from "~/util/pocketbase";
+import {usePocketBase} from "~/utils/pocketbase";
 import {useLocalStorage} from '@vueuse/core'
 import ArticelWriteComment from "~/components/blog/ArticelWriteComment.vue";
 import ModalLogin from "~/components/modal/Login.vue";

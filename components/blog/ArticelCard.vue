@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {usePocketBase} from "@/util/pocketbase";
+import {usePocketBase} from "@/utils/pocketbase";
 
 const props = defineProps({
   identifier: {type: String, required: true}

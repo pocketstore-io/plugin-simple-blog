@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import {usePocketBase,usePocketBaseUrl} from "@/util/pocketbase";
+import {usePocketBase,usePocketBaseUrl} from "@/utils/pocketbase";
 
 const props = defineProps({
   identifier: {required: true, type: String}
