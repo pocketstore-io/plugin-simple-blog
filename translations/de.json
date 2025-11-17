@@ -6,6 +6,9 @@
     "memberSince": "Mitglied seit",
     "close": "schließen"
   },
+  "breadcrumb": {
+    "blog": "Blog"
+  },
   "placeholder": {
     "comment": "Dein Kommentar"
   },
