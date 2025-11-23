@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {usePocketBase} from "@/utils/pocketbase";
+import {usePocketBase, getMediaUrl} from "@/utils/pocketbase";
 
 const props = defineProps({
   identifier: {type: String, required: true}
@@ -23,9 +23,9 @@ onMounted(load)
 <template>
   <div class="card bg-gray-400 shadow-sm">
     <a :href="'/de/articel/'+item.slug+'.html'">
-      <figure>
+      <figure v-if="item.media">
         <img
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+            :src="getMediaUrl(item, 'media')"
             alt="Shoes"/>
       </figure>
     </a>
