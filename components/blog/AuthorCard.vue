@@ -1,53 +1,44 @@
 <template>
-  <section class="mt-6">
-    <section class="grid grid-cols-6 gap-3 bg-gray-300 border-2 border-black">
-      <div class="col-span-2">
-        <img :src="url+'/api/files/'+props.data.collectionId+'/'+props.data.id+'/'+props.data.avatar" alt="">
+  <div class="max-w-sm mx-auto">
+    <div v-if="author" class="card bg-base-100 shadow-xl hover:shadow-2xl transition">
+      <figure class="px-6 pt-6">
+        <img v-if="author"
+             :src="getMediaUrl(author,'avatar')"
+             alt="Author Avatar"
+             class="rounded-full w-32 h-32 object-cover border-4 border-base-200"
+        >
+      </figure>
+
+      <div class="card-body items-center text-center">
+        <h2 class="card-title text-lg font-bold">
+          {{ author.name }}
+        </h2>
+        <p class="text-base-content/70 text-sm md:text-base">
+          {{ author.job }}
+        </p>
+
       </div>
-      <div class="col-span-4 prose-sm">
-        <h3 class="font-bold mt-2">Author: {{ props.data.name }}</h3>
-        <p class="block pr-3">{{ props.data.description }}</p>
-        <section class="social-media-icons">
-          <h5 class="font-bold">{{$t('headline.contactAndSocial')}}</h5>
-          <hr class="!my-2">
-          <section class="grid grid-cols-10 gap-3">
-            <div class="col-span-2 text-center">
-              <a href="/">
-                <font-awesome-icon :icon="['fas', 'envelope']"></font-awesome-icon>
-              </a>
-            </div>
-            <div class="col-span-2 text-center">
-              <a href="/">
-                <font-awesome-icon :icon="['fab', 'whatsapp']"></font-awesome-icon>
-              </a>
-            </div>
-            <div class="col-span-2 text-center">
-              <a href="/">
-                <font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon>
-              </a>
-            </div>
-            <div class="col-span-2 text-center">
-              <a href="/">
-                <font-awesome-icon :icon="['fab', 'linkedin']"></font-awesome-icon>
-              </a>
-            </div>
-            <div class="col-span-2 text-center"><a href="/">
-              <font-awesome-icon :icon="['fab', 'instagram']"></font-awesome-icon>
-            </a>
-            </div>
-          </section>
-        </section>
-      </div>
-    </section>
-  </section>
+    </div>
+  </div>
 </template>
 
-<script setup lang="ts">
-import {usePocketBaseUrl} from "@/utils/pocketbase";
-import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
+<script setup>
+import {getMediaUrl, usePocketBase} from "@/utils/pocketbase"
 
 const props = defineProps({
-  data: {type: Object, required: true}
-});
-const url = usePocketBaseUrl();
+  identifier: {
+    type: String, required: true
+  }
+})
+
+const author = ref({});
+const pb = usePocketBase();
+
+const load = async ()=>{
+  author.value = await pb.collection("blog_articel_authors").getOne(props.identifier);
+}
+
+watch(()=>props.identifier, () => {
+  load();
+})
 </script>
