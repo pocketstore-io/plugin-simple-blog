@@ -15,12 +15,9 @@ const load = async () => {
   pb.autoCancellation(false)
   item.value = await pb.collection('blog_articels').getFirstListItem('slug="' + route.params.id.replace('.html', '') + '"');
   author.value = await pb.collection('blog_articel_authors').getOne(item.value.author);
-  useHead({
+  useSeoMeta({
     title: item.value.name,
-    meta: [{
-      name: "description",
-      content: value.item.description
-    }]
+    description: item.value.description,
   })
 }
 const markdown = computed(() => {
